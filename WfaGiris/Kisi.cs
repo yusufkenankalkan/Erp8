@@ -1,19 +1,19 @@
-﻿using System.Text.RegularExpressions;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
-namespace OopGiris
+namespace WfaGiris
 {
     public class Kisi
     {
-        // ad, soyad, dogumTarihi, tckn, telefon, email,yas
-        //ad ve soyad özel karakter ve sayı içermemeli. Okunurken ilk harf büyük diğer harfler küçük göstermeli
-        //tckn 11 haneli olmalı ve sadece rakamlardan oluşmalı
-        //telefon 10 haneli olmalı ve sadece rakamlardan oluşmalı
-        //Email adresi @ işaretinden sonra en az 2 karakter olmali ve email kurallarına uygun olmalı asd@asd
-        //Yaş özelliği sadece okunur olmalı
+
         private string _ad, _soyad, _tckn, _telefon, _email;
         private DateTime dateTime;
 
-        
+
         public string Ad
         {
             set
@@ -40,7 +40,7 @@ namespace OopGiris
                     if (char.IsDigit(harf) || char.IsSymbol(harf) || char.IsPunctuation(harf))
                         throw new Exception("Soyad alanınıza özel karakter veya sayı girişi yapılamaz");
                 }
-                _ad = value;
+                _soyad = value;
             }
             get
             {
@@ -95,15 +95,9 @@ namespace OopGiris
         {
             get => DateTime.Now.Year - this.DogumTarihi.Year;
         }
-        public void KisiyiEkranaYaz(Kisi kisi)
+        public override string ToString()
         {
-            Console.WriteLine("AD: " + kisi.Ad);
-            Console.WriteLine("SOYAD: " + kisi.Soyad);
-            Console.WriteLine("TCKN: " + kisi.Tckn);
-            Console.WriteLine("EMAIL: " + kisi.Email);
-            Console.WriteLine("TELEFON: " + kisi.Telefon);
-            Console.WriteLine("YAS: " + kisi.Yas);
+            return $"{this.Ad} {this.Soyad} - {this.Yas}";
         }
     }
-
 }
