@@ -43,11 +43,20 @@ namespace WfaGiris
                 };
                 //lstKisiler.DisplayMember = "Ad";
                 lstKisiler.Items.Add(yeniKisi);
+                FormuTemizle();
             }
             catch (Exception ex)
             {
 
                 MessageBox.Show($"Bir Hata Oluştu ! {ex.Message}");
+            }
+        }
+        public void FormuTemizle()
+        {
+            foreach (Control item in this.Controls)
+            {
+                // TODO: Formdaki textbox ve datetimepickerları ilk açıldığı hale getirin
+                item.Text = String.Empty;
             }
         }
     }
