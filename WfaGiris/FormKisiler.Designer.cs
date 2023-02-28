@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -42,6 +43,11 @@
             this.btnKaydet = new System.Windows.Forms.Button();
             this.dtpDogumTarihi = new System.Windows.Forms.DateTimePicker();
             this.lstKisiler = new System.Windows.Forms.ListBox();
+            this.cmsSil = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.düzenleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.silToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtAra = new System.Windows.Forms.TextBox();
+            this.cmsSil.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -153,18 +159,52 @@
             // 
             // lstKisiler
             // 
+            this.lstKisiler.ContextMenuStrip = this.cmsSil;
             this.lstKisiler.FormattingEnabled = true;
             this.lstKisiler.ItemHeight = 15;
-            this.lstKisiler.Location = new System.Drawing.Point(284, 26);
+            this.lstKisiler.Location = new System.Drawing.Point(284, 63);
             this.lstKisiler.Name = "lstKisiler";
-            this.lstKisiler.Size = new System.Drawing.Size(170, 214);
+            this.lstKisiler.Size = new System.Drawing.Size(170, 169);
             this.lstKisiler.TabIndex = 7;
+            this.lstKisiler.SelectedIndexChanged += new System.EventHandler(this.lstKisiler_SelectedIndexChanged);
+            // 
+            // cmsSil
+            // 
+            this.cmsSil.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.düzenleToolStripMenuItem});
+            this.cmsSil.Name = "cmsSil";
+            this.cmsSil.Size = new System.Drawing.Size(117, 26);
+            // 
+            // düzenleToolStripMenuItem
+            // 
+            this.düzenleToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.silToolStripMenuItem});
+            this.düzenleToolStripMenuItem.Name = "düzenleToolStripMenuItem";
+            this.düzenleToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.düzenleToolStripMenuItem.Text = "Düzenle";
+            // 
+            // silToolStripMenuItem
+            // 
+            this.silToolStripMenuItem.Name = "silToolStripMenuItem";
+            this.silToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.silToolStripMenuItem.Text = "Sil";
+            this.silToolStripMenuItem.Click += new System.EventHandler(this.silToolStripMenuItem_Click);
+            // 
+            // txtAra
+            // 
+            this.txtAra.Location = new System.Drawing.Point(284, 26);
+            this.txtAra.Name = "txtAra";
+            this.txtAra.PlaceholderText = "Ara";
+            this.txtAra.Size = new System.Drawing.Size(170, 23);
+            this.txtAra.TabIndex = 8;
+            this.txtAra.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtAra_KeyUp);
             // 
             // FormKisiler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(503, 450);
+            this.Controls.Add(this.txtAra);
             this.Controls.Add(this.lstKisiler);
             this.Controls.Add(this.dtpDogumTarihi);
             this.Controls.Add(this.btnKaydet);
@@ -181,6 +221,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FormKisiler";
             this.Text = "FormKisiler";
+            this.cmsSil.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -202,5 +243,9 @@
         private Button btnKaydet;
         private DateTimePicker dtpDogumTarihi;
         private ListBox lstKisiler;
+        private ContextMenuStrip cmsSil;
+        private ToolStripMenuItem düzenleToolStripMenuItem;
+        private ToolStripMenuItem silToolStripMenuItem;
+        private TextBox txtAra;
     }
 }
