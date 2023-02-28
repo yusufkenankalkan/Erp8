@@ -56,8 +56,11 @@ namespace WfaGiris
             foreach (Control item in this.Controls)
             {
                 // TODO: Formdaki textbox ve datetimepickerları ilk açıldığı hale getirin
-                item.Text = String.Empty;
+                //item.Text = String.Empty;
+                if (item is TextBox)
+                    item.Text = String.Empty;
             }
+            dtpDogumTarihi.Value = DateTime.Now; 
         }
     }
 }
