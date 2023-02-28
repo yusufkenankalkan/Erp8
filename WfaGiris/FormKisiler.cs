@@ -152,6 +152,24 @@ namespace WfaGiris
             lstKisiler.DataSource = null;
             lstKisiler.DataSource = sonuc;
 
+            //2. yöntem
+            sonuc = new();
+            _kisiler.ForEach(item =>
+            {
+                if (item.Ad.ToLower().Contains(arama) || item.Soyad.ToLower().Contains(arama) || item.Tckn.ToLower().StartsWith(arama))
+                    sonuc.Add(item);
+            });
+            lstKisiler.DataSource = null;
+            lstKisiler.DataSource = sonuc;
+
+            //3. yöntem (Linq)
+            sonuc = _kisiler
+                .Where(item => item.Ad.ToLower().Contains(arama) || item.Soyad.ToLower().Contains(arama) || item.Tckn.ToLower().StartsWith(arama))
+                .ToList();
+
+            lstKisiler.DataSource = null;
+            lstKisiler.DataSource = sonuc;
+
         }
     }
 }
