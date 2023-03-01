@@ -37,9 +37,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6-7.Gün", "6-7.Gün", "{4B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WfaGiris", "WfaGiris\WfaGiris.csproj", "{51D846F9-02D5-4BB4-AFEE-35B5A063D009}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZarTahminWindowsForm", "ZarTahminWindowsForm\ZarTahminWindowsForm.csproj", "{8CDE42C4-8151-47C0-9CCE-5DFBBC533F6B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZarTahminWindowsForm", "ZarTahminWindowsForm\ZarTahminWindowsForm.csproj", "{8CDE42C4-8151-47C0-9CCE-5DFBBC533F6B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SayiOkuyucuFormApp", "SayiOkuyucuFormApp\SayiOkuyucuFormApp.csproj", "{0926621B-4419-436E-A996-96CAA4D401D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SayiOkuyucuFormApp", "SayiOkuyucuFormApp\SayiOkuyucuFormApp.csproj", "{0926621B-4419-436E-A996-96CAA4D401D9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "8.Gün", "8.Gün", "{B58CA393-737B-40C7-A832-9E7EC4DB72DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KronometreForm", "KronometreForm\KronometreForm.csproj", "{D0C63E69-8857-4FAD-B3A5-B6CB1436E02A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HesapMakinesiForm", "HesapMakinesiForm\HesapMakinesiForm.csproj", "{BFF0DE2D-56D7-4265-9D06-FE6692E446E6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -99,6 +105,14 @@ Global
 		{0926621B-4419-436E-A996-96CAA4D401D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0926621B-4419-436E-A996-96CAA4D401D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0926621B-4419-436E-A996-96CAA4D401D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0C63E69-8857-4FAD-B3A5-B6CB1436E02A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0C63E69-8857-4FAD-B3A5-B6CB1436E02A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0C63E69-8857-4FAD-B3A5-B6CB1436E02A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0C63E69-8857-4FAD-B3A5-B6CB1436E02A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFF0DE2D-56D7-4265-9D06-FE6692E446E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFF0DE2D-56D7-4265-9D06-FE6692E446E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFF0DE2D-56D7-4265-9D06-FE6692E446E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFF0DE2D-56D7-4265-9D06-FE6692E446E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -117,6 +131,8 @@ Global
 		{51D846F9-02D5-4BB4-AFEE-35B5A063D009} = {4B590160-C29F-4A3E-9440-F8A350BBA6C8}
 		{8CDE42C4-8151-47C0-9CCE-5DFBBC533F6B} = {4B590160-C29F-4A3E-9440-F8A350BBA6C8}
 		{0926621B-4419-436E-A996-96CAA4D401D9} = {4B590160-C29F-4A3E-9440-F8A350BBA6C8}
+		{D0C63E69-8857-4FAD-B3A5-B6CB1436E02A} = {B58CA393-737B-40C7-A832-9E7EC4DB72DE}
+		{BFF0DE2D-56D7-4265-9D06-FE6692E446E6} = {B58CA393-737B-40C7-A832-9E7EC4DB72DE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C7DACCB8-DE20-439C-8E1C-22F33AB2AB1C}
