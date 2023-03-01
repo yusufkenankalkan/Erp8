@@ -84,8 +84,22 @@ namespace KronometreForm
             _kronometre = new DateTime();
             lblEkran.Text = _kronometre.ToString("HH:mm:ss:fff");
             pbKalanSure.Value = 0;
+            FormuTemizle(this.Controls);
         }
-
+        private void FormuTemizle(Control.ControlCollection collection)
+        {
+            foreach (Control item in collection)
+            {
+                if (item is TextBox)
+                    item.Text = String.Empty;
+                else if (item is CheckBox cBox)
+                    cBox.Checked = false;
+                else if (item is ComboBox combo)
+                    combo.SelectedIndex = 0;
+                else if (item is GroupBox gBox)
+                    FormuTemizle(gBox.Controls);
+            }
+        }
         private void lblEkran_Click(object sender, EventArgs e)
         {
 
