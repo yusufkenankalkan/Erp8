@@ -24,6 +24,7 @@ namespace HesapMakinesiForm
             Button basilanButon = (Button)sender;
             string ekran = basilanButon.Text;
             txtEkran.Text += ekran;
+             
         }
 
         private void BtnOperator_Click(object? sender, EventArgs e)
