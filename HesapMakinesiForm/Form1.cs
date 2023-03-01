@@ -15,6 +15,7 @@ namespace HesapMakinesiForm
             btn7.Click += BtnNumeric_Click;
             btn8.Click += BtnNumeric_Click;
             btn9.Click += BtnNumeric_Click;
+
         }
 
         private double _sonuc = 0;
