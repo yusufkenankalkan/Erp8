@@ -23,13 +23,19 @@ namespace Kalitim
                 X = 5,
                 Y = 12
             };
-            yeniDikdortgen.X = 4;
-            yeniDikdortgen.Y = 5;
+
             this.Text = $"Dikdörtgen alaný : {yeniDikdortgen.AlanHesapla()}";
+
+            DikUcgen ucgen = new DikUcgen(6, 8);
 
             sekiller.Add(yeniKare);
             sekiller.Add(yeniDikdortgen);
+            sekiller.Add(ucgen);
             //sekiller.Add(yeniSekil);
+            foreach (Sekil item in sekiller)
+            {
+                Console.WriteLine(item.CevreHesapla());
+            } 
         }
     }
 }

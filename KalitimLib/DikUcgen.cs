@@ -31,5 +31,5 @@ namespace KalitimLib
     //{
 
     //}
-
+    //Polymorphizm, görünüşleri aynı çalışma biçimleri farklı olan
 }
