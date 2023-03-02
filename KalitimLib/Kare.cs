@@ -6,12 +6,19 @@ using System.Threading.Tasks;
 
 namespace KalitimLib
 {
-    public class Kare
+    public class Kare : Sekil
     {
-        public double X { get; set; }
+        public Kare()
+        {
 
-        public double AlanHesapla() => X * X;
-        public double CevreHesapla() => 4 * X;
+        }
+        public Kare(int x):base(x)
+        {
 
+        }
+        public override double CevreHesapla() //
+        {
+            return 4 * X;
+        }
     }
 }
