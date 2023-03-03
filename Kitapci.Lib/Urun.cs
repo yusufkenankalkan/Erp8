@@ -6,47 +6,76 @@ using System.Threading.Tasks;
 
 namespace Kitapci.Lib
 {
-    public class Urun
+    public abstract class Urun
     {
-        private double _fiyat;
-        private int _stok;
-        private string _urunAdi;
-        public Urun(double fiyat, int stok, string urunAdi)
+        private decimal _fiyat;
+        public string Ad { get; set; }
+        public string Aciklama { get; set; }
+        public decimal Fiyat
         {
-            _fiyat = fiyat;
-            _stok = stok;
-            _urunAdi = urunAdi;
-        }
-        public double Fiyat
-        {
-            get { return _fiyat; }
+            get => _fiyat;
             set
             {
-                if (_fiyat <= 0)
-                    throw new Exception("Ürün fiyatı 0 veya daha az olamaz");
+                if (value <= 0)
+                    throw new Exception("Fiyat 0'dan büyük olmalıdır");
                 _fiyat = value;
+            }
+        }
+        //protected sadece kalıtım verildiği sınıflar tarafından erişilebilir.
+        public int Stok { get; protected set; } = 0;
+        public byte[] Fotograf { get; set; }
+        public double IndirimOrani { get; set; } = 0;
+        public int SatisYap(int adet)
+        {
+            if (this.Stok >= adet)
+                this.Stok -= adet;
+            else
+                throw new Exception("Stokta yeterli ürün yok");
+            return this.Stok;
+        }
+        public int StokEkle(int adet)
+        {
+            this.Stok += adet;
+            return this.Stok;
+        }
+    }
 
-            }
-        }
-        public int Stok
-        {
-            get { return _stok; }
-            set
-            {
-                if (_stok < 0)
-                    throw new Exception("Stok 0'dan az olamaz");
-                _stok = value;
-            }
-        }
-        public string UrunAdi
-        {
-            get { return _urunAdi; }
-            set
-            {
-                if (_urunAdi == null || _urunAdi.Length < 2)
-                    throw new Exception("Ürün adı en az 1 karakter içermelidir");
-                _urunAdi = value;
-            }
-        }
+    public class Kitap : Urun
+    {
+        public Artist Yazar { get; set; }
+        public int BasimYili { get; set; }
+        public string YayinEvi { get; set; }
+        public string ISBN { get; set; }
+        public string Dil { get; set; }
+    }
+
+    public class Dergi : Urun
+    {
+        public string YayinEvi { get; set; }
+        public int Cilt { get; set; }
+        public int Sayi { get; set; }
+        public int BasimYili { get; set; }
+        public string Dil { get; set; }
+        public string ISBN { get; set; }
+    }
+
+    public class PlakCd : Urun
+    {
+        public Artist Artist { get; set; } //Complex Type
+        public string AlbumAdi { get; set; }
+        public string Tur { get; set; }
+    }
+
+    public class Artist
+    {
+        public string Ad { get; set; }
+        public string Soyad { get; set; }
+        public string Ulke { get; set; }
+        public string Cinsiyet { get; set; }
+        public DateTime DogumTarihi { get; set; }
+        public string DogumYeri { get; set; }
+        public string Ozgecmis { get; set; }
+
+        public List<Urun> Urunler { get; set; } = new List<Urun>();
     }
 }
