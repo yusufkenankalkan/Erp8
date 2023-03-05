@@ -29,6 +29,7 @@ namespace Car.Lib
         public double ToplamUcret()
         {
             return (KiralamaBaslangicTarihi.Day - KiralamaBitisTarihi.Day) * _gunlukUcret;
+
         }
 
     }
