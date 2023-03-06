@@ -49,6 +49,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pbAvatar = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.dosyaAc = new System.Windows.Forms.OpenFileDialog();
             this.cmsSil.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAvatar)).BeginInit();
             this.SuspendLayout();
@@ -101,7 +102,7 @@
             // silToolStripMenuItem
             // 
             this.silToolStripMenuItem.Name = "silToolStripMenuItem";
-            this.silToolStripMenuItem.Size = new System.Drawing.Size(86, 22);
+            this.silToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.silToolStripMenuItem.Text = "Sil";
             this.silToolStripMenuItem.Click += new System.EventHandler(this.silToolStripMenuItem_Click_1);
             // 
@@ -212,6 +213,7 @@
             this.pbAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbAvatar.TabIndex = 24;
             this.pbAvatar.TabStop = false;
+            this.pbAvatar.Click += new System.EventHandler(this.pbAvatar_Click);
             // 
             // label7
             // 
@@ -221,6 +223,10 @@
             this.label7.Size = new System.Drawing.Size(52, 15);
             this.label7.TabIndex = 10;
             this.label7.Text = "Fotoğraf";
+            // 
+            // dosyaAc
+            // 
+            this.dosyaAc.FileName = "dosya";
             // 
             // Form1
             // 
@@ -275,5 +281,6 @@
         private ContextMenuStrip cmsSil;
         private ToolStripMenuItem düzenleToolStripMenuItem;
         private ToolStripMenuItem silToolStripMenuItem;
+        private OpenFileDialog dosyaAc;
     }
 }

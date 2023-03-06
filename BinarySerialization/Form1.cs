@@ -167,6 +167,14 @@ namespace BinarySerialization
             }
         }
 
+        private void pbAvatar_Click(object sender, EventArgs e)
+        {
+            dosyaAc.Title = "Bir fotoðraf dosyasý seçiniz";
+            dosyaAc.Filter = "JPG Dosyalarý(*.jpg) | *.jpg";
+            dosyaAc.FileName = string.Empty;
+            dosyaAc.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
+            dosyaAc.ShowDialog();
+        }
     }
 }
