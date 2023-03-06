@@ -1,3 +1,7 @@
+﻿using Newtonsoft.Json;
+using System.Xml;
+using System.Xml.Serialization;
+
 namespace BinarySerialization
 {
     public partial class Form1 : Form
@@ -32,6 +36,11 @@ namespace BinarySerialization
                         DogumTarihi = dtpDogumTarihi.Value
 
                     };
+                    if (_memoryStream.Length > 0)
+                    {
+                        yeniKisi.Fotograf = _memoryStream.ToArray();
+                    }
+                    _memoryStream = new MemoryStream();
                     //lstKisiler.DisplayMember = "Ad";
                     //lstKisiler.Items.Add(yeniKisi);
                     _kisiler.Add(yeniKisi);
@@ -41,9 +50,9 @@ namespace BinarySerialization
                 catch (Exception ex)
                 {
 
-                    MessageBox.Show($"Bir Hata Olu�tu ! {ex.Message}");
+                    MessageBox.Show($"Bir Hata Oluştu ! {ex.Message}");
                 }
-            else // G�ncelleme ��lemi
+            else // Güncelleme İşlemi
             {
                 try
                 {
@@ -63,7 +72,7 @@ namespace BinarySerialization
                 catch (Exception ex)
                 {
 
-                    MessageBox.Show($"Bir Hata Olu�tu ! {ex.Message}");
+                    MessageBox.Show($"Bir Hata Oluştu ! {ex.Message}");
                 }
             }
         }
@@ -71,7 +80,7 @@ namespace BinarySerialization
         {
             foreach (Control item in this.Controls)
             {
-                // TODO: Formdaki textbox ve datetimepickerlar� ilk a��ld��� hale getirin
+                // TODO: Formdaki textbox ve datetimepickerları ilk açıldığı hale getirin
                 //item.Text = String.Empty;
                 if (item is TextBox)
                     item.Text = String.Empty;
@@ -91,7 +100,7 @@ namespace BinarySerialization
 
         }
 
-        
+
 
 
 
@@ -110,7 +119,7 @@ namespace BinarySerialization
             lstKisiler.DataSource = null;
             lstKisiler.DataSource = sonuc;
 
-            //2. y�ntem
+            //2. yöntem
             sonuc = new();
             _kisiler.ForEach(item =>
             {
@@ -120,7 +129,7 @@ namespace BinarySerialization
             lstKisiler.DataSource = null;
             lstKisiler.DataSource = sonuc;
 
-            //3. y�ntem (Linq)
+            //3. yöntem (Linq)
             sonuc = _kisiler
                 .Where(item => item.Ad.ToLower().Contains(arama) || item.Soyad.ToLower().Contains(arama) || item.Tckn.ToLower().StartsWith(arama))
                 .ToList();
@@ -145,8 +154,9 @@ namespace BinarySerialization
                 txtTelefon.Text = _seciliKisi.Telefon;
                 txtEmail.Text = _seciliKisi.Email;
                 dtpDogumTarihi.Value = _seciliKisi.DogumTarihi;
+                pbAvatar.Image = _seciliKisi.Fotograf != null ? Image.FromStream(new MemoryStream(_seciliKisi.Fotograf)) : null;
 
-                btnKaydet.Text = "G�ncelle";
+                btnKaydet.Text = "Güncelle";
             }
         }
 
@@ -154,7 +164,7 @@ namespace BinarySerialization
         {
             if (lstKisiler.SelectedItem == null) return;
             var seciliKisi = lstKisiler.SelectedItem as Kisi;
-            DialogResult result = MessageBox.Show($"{seciliKisi.Ad} {seciliKisi.Soyad} ki�isini silmek istiyor musunuz ? ", "Silme Onay�", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show($"{seciliKisi.Ad} {seciliKisi.Soyad} kişisini silmek istiyor musunuz ? ", "Silme Onayı", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
             {
@@ -166,15 +176,114 @@ namespace BinarySerialization
                 btnKaydet.Text = "Kaydet";
             }
         }
+        private MemoryStream _memoryStream = new MemoryStream();
+        private int _bufferSize = 64;
+        private byte[] _photoBytes = new byte[64];
+        private object xmlserializer;
 
         private void pbAvatar_Click(object sender, EventArgs e)
         {
-            dosyaAc.Title = "Bir foto�raf dosyas� se�iniz";
-            dosyaAc.Filter = "JPG Dosyalar�(*.jpg) | *.jpg";
+            dosyaAc.Title = "Bir fotoğraf dosyası seçiniz";
+            dosyaAc.Filter = "JPG Dosyaları(*.jpg) | *.jpg";
             dosyaAc.FileName = string.Empty;
             dosyaAc.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
-            dosyaAc.ShowDialog();
+            if (dosyaAc.ShowDialog() == DialogResult.OK)
+            {
+                _memoryStream = new MemoryStream();
+                //FileStream fileStream = new FileStream(dosyaAc.FileName, FileMode.Open);
+                FileStream fileStream = File.Open(dosyaAc.FileName, FileMode.Open);
+                while (fileStream.Read(_photoBytes, 0, _bufferSize) != 0)
+                {
+                    _memoryStream.Write(_photoBytes, 0, _bufferSize);
+                }
+                fileStream.Close();
+                fileStream.Dispose();
+
+                pbAvatar.Image = Image.FromStream(_memoryStream);
+                //pbAvatar.Image = new Bitmap(_memoryStream);
+
+                //pbAvatar.ImageLocation = dosyaAc.FileName;
+            }
+        }
+
+        private void dışarıAktarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //XML
+            dosyaKaydet.Title = "Kişileri XLM olarak kaydet";
+            dosyaKaydet.Filter = "XML Dosyaları (*.xml) | *.xml";
+            dosyaKaydet.FileName = "Kişiler.xml";
+            dosyaKaydet.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            if (dosyaKaydet.ShowDialog() == DialogResult.OK)
+            {
+                XmlSerializer serializer = new XmlSerializer(typeof(List<Kisi>));
+                TextWriter textWriter = new StreamWriter(dosyaKaydet.FileName);
+                serializer.Serialize(textWriter, _kisiler);
+                textWriter.Close();
+                textWriter.Dispose();
+                MessageBox.Show($"XML dışarı aktarma işlemi başarılı : {dosyaKaydet.FileName} ");
+            }
+        }
+
+        private void içeriAktarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dosyaAc.Title = "Kişileri XLM olarak kaydet";
+            dosyaAc.Filter = "XML Dosyaları (*.xml) | *.xml";
+            dosyaAc.FileName = "Kişiler.xml";
+            dosyaAc.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            if (dosyaAc.ShowDialog() == DialogResult.OK)
+            {
+                XmlSerializer serializer = new XmlSerializer(typeof(List<Kisi>));
+                XmlReader xmlReader = new XmlTextReader(dosyaAc.FileName);
+                if (serializer.CanDeserialize(xmlReader))
+                {
+                    _kisiler = serializer.Deserialize(xmlReader) as List<Kisi>;
+                    MessageBox.Show($"{_kisiler.Count} kişi sisteme başarıyla eklendi");
+                    lstKisiler.DataSource = null;
+                    lstKisiler.DataSource = _kisiler;
+                }
+                else
+                {
+                    MessageBox.Show("Lütfen doğru xml dosyasını seçin!");
+                }
+
+            }
+
+        }
+
+        private void dışarıAktarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            dosyaKaydet.Title = "Bir JSON dosyasý seçiniz";
+            dosyaKaydet.Filter = "(JSON Dosyasý) | *.json";
+            dosyaKaydet.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            dosyaKaydet.FileName = "Kisiler.json";
+            if (dosyaKaydet.ShowDialog() == DialogResult.OK)
+            {
+                FileStream file = File.Open(dosyaKaydet.FileName, FileMode.Create);
+                StreamWriter writer = new StreamWriter(file);
+                writer.Write(JsonConvert.SerializeObject(_kisiler));
+                writer.Close();
+                writer.Dispose();
+            }
+        }
+
+        private void içeriAktarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            dosyaAc.Title = "Bir JSON dosyasý seçiniz";
+            dosyaAc.Filter = "(JSON Dosyasý) | *.json";
+            dosyaAc.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            dosyaAc.FileName = "Kisiler.json";
+            if (dosyaAc.ShowDialog() == DialogResult.OK)
+            {
+                FileStream dosya = File.OpenRead(dosyaAc.FileName);
+                StreamReader reader = new StreamReader(dosya);
+                string dosyaIcerigi = reader.ReadToEnd();
+                //_kisiler = JsonConvert.DeserializeObject(dosyaIcerigi) as List<Kisi>;
+                _kisiler = JsonConvert.DeserializeObject<List<Kisi>>(dosyaIcerigi);
+
+                lstKisiler.DataSource = null;
+                lstKisiler.DataSource = _kisiler;
+            }
         }
     }
 }

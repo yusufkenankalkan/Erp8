@@ -14,6 +14,7 @@ namespace BinarySerialization
         public string Telefon { get; set; }
         public string Email { get; set; }
         public string Tckn { get; set; }
+        public byte [] Fotograf { get; set; }
         public override string ToString() => $"{this.Ad} {this.Soyad}";
  
 
