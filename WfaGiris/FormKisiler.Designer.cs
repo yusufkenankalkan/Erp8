@@ -173,15 +173,16 @@
             this.cmsSil.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.düzenleToolStripMenuItem});
             this.cmsSil.Name = "cmsSil";
-            this.cmsSil.Size = new System.Drawing.Size(117, 26);
+            this.cmsSil.Size = new System.Drawing.Size(181, 48);
             // 
             // düzenleToolStripMenuItem
             // 
             this.düzenleToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.silToolStripMenuItem});
             this.düzenleToolStripMenuItem.Name = "düzenleToolStripMenuItem";
-            this.düzenleToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.düzenleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.düzenleToolStripMenuItem.Text = "Düzenle";
+
             // 
             // silToolStripMenuItem
             // 
