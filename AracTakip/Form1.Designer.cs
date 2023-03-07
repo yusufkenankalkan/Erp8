@@ -336,7 +336,6 @@
             this.Controls.Add(this.pbAvatar);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Click += new System.EventHandler(this.Form1_Click);
             ((System.ComponentModel.ISupportInitialize)(this.pbAvatar)).EndInit();
             this.cmsSil.ResumeLayout(false);
             this.gbYakit.ResumeLayout(false);

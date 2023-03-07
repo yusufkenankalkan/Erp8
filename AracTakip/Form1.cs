@@ -143,12 +143,6 @@ namespace AracTakip
         }
 
 
-        private void Form1_Click(object sender, EventArgs e)
-        {
-            lstAraclar.SelectedIndex = -1;
-            FormuTemizle(this.Controls);
-        }
-
         private void silToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (lstAraclar.SelectedItem == null) return;
