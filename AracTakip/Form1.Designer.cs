@@ -55,6 +55,7 @@
             this.txtAra = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtMotorHacmi = new System.Windows.Forms.TextBox();
+            this.dosyaAc = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pbAvatar)).BeginInit();
             this.cmsSil.SuspendLayout();
             this.gbYakit.SuspendLayout();
@@ -66,8 +67,10 @@
             this.pbAvatar.Location = new System.Drawing.Point(12, 289);
             this.pbAvatar.Name = "pbAvatar";
             this.pbAvatar.Size = new System.Drawing.Size(264, 214);
+            this.pbAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbAvatar.TabIndex = 0;
             this.pbAvatar.TabStop = false;
+            this.pbAvatar.Click += new System.EventHandler(this.pbAvatar_Click);
             // 
             // lstAraclar
             // 
@@ -92,6 +95,7 @@
             this.silToolStripMenuItem.Name = "silToolStripMenuItem";
             this.silToolStripMenuItem.Size = new System.Drawing.Size(86, 22);
             this.silToolStripMenuItem.Text = "Sil";
+            this.silToolStripMenuItem.Click += new System.EventHandler(this.silToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -286,6 +290,7 @@
             this.txtAra.PlaceholderText = "Ara";
             this.txtAra.Size = new System.Drawing.Size(264, 23);
             this.txtAra.TabIndex = 14;
+            this.txtAra.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtAra_KeyUp);
             // 
             // label5
             // 
@@ -302,6 +307,10 @@
             this.txtMotorHacmi.Name = "txtMotorHacmi";
             this.txtMotorHacmi.Size = new System.Drawing.Size(142, 23);
             this.txtMotorHacmi.TabIndex = 16;
+            // 
+            // dosyaAc
+            // 
+            this.dosyaAc.FileName = "openFileDialog1";
             // 
             // Form1
             // 
@@ -327,6 +336,7 @@
             this.Controls.Add(this.pbAvatar);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Click += new System.EventHandler(this.Form1_Click);
             ((System.ComponentModel.ISupportInitialize)(this.pbAvatar)).EndInit();
             this.cmsSil.ResumeLayout(false);
             this.gbYakit.ResumeLayout(false);
@@ -366,5 +376,6 @@
         private ToolStripMenuItem silToolStripMenuItem;
         private Label label5;
         private TextBox txtMotorHacmi;
+        private OpenFileDialog dosyaAc;
     }
 }
