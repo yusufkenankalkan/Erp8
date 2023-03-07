@@ -69,9 +69,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Car.Lib", "Car.Lib\Car.Lib.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "11.Gün", "11.Gün", "{DA562929-A69B-44E1-B2A6-5B3F4E502BAE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatikNesneler", "StatikNesneler\StatikNesneler.csproj", "{4064A3F3-5A5A-467A-A0E1-A67CD303CD20}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StatikNesneler", "StatikNesneler\StatikNesneler.csproj", "{4064A3F3-5A5A-467A-A0E1-A67CD303CD20}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinarySerialization", "BinarySerialization\BinarySerialization.csproj", "{698A41A2-215E-4DB1-9627-6F4D870B18CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinarySerialization", "BinarySerialization\BinarySerialization.csproj", "{698A41A2-215E-4DB1-9627-6F4D870B18CE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "12.Gün", "12.Gün", "{0ABA8D3B-6B42-450D-8610-E844FB3E9A5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AracTakip", "AracTakip\AracTakip.csproj", "{F74E688B-4F23-478E-8389-D8081E2FC242}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -179,6 +183,10 @@ Global
 		{698A41A2-215E-4DB1-9627-6F4D870B18CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{698A41A2-215E-4DB1-9627-6F4D870B18CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{698A41A2-215E-4DB1-9627-6F4D870B18CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F74E688B-4F23-478E-8389-D8081E2FC242}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F74E688B-4F23-478E-8389-D8081E2FC242}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F74E688B-4F23-478E-8389-D8081E2FC242}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F74E688B-4F23-478E-8389-D8081E2FC242}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -209,6 +217,7 @@ Global
 		{1BF88FBF-870B-4DC1-A458-4E2939D5C423} = {CA9E5A6C-4121-4679-9F76-E363E868452D}
 		{4064A3F3-5A5A-467A-A0E1-A67CD303CD20} = {DA562929-A69B-44E1-B2A6-5B3F4E502BAE}
 		{698A41A2-215E-4DB1-9627-6F4D870B18CE} = {DA562929-A69B-44E1-B2A6-5B3F4E502BAE}
+		{F74E688B-4F23-478E-8389-D8081E2FC242} = {0ABA8D3B-6B42-450D-8610-E844FB3E9A5C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C7DACCB8-DE20-439C-8E1C-22F33AB2AB1C}
