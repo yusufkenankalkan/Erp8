@@ -12,18 +12,22 @@ namespace AracTakipNew.Helpers
     public class DataHelper
     {
         private static readonly string Path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AracData.json";
-        public static void Save( EnvanterContext context)
+        public static void Save(EnvanterContext context)
         {
+            if (File.Exists(Path))
+                File.Delete(Path);
             FileStream fs = new(Path, FileMode.OpenOrCreate);
             StreamWriter sw = new(fs);
-            sw.Write(JsonConvert.SerializeObject(context, new JsonSerializerSettings()
+            //JSON serialize referance loop ignore
+            var seri = JsonConvert.SerializeObject(context, new JsonSerializerSettings()
             {
                 ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
                 MaxDepth = 1
-            }));
+            });
             fs.Close();
             fs.Dispose();
         }
+
         public static EnvanterContext Load()
         {
             FileStream fs = new(Path, FileMode.OpenOrCreate);
