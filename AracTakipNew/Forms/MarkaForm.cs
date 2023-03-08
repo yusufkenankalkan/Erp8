@@ -91,5 +91,9 @@ namespace AracTakipNew.Forms
 
         }
 
+        private void MarkaForm_Load(object sender, EventArgs e)
+        {
+            lstListe.DataSource = Liste;
+        }
     }
 }

@@ -106,6 +106,7 @@
             this.Controls.Add(this.label1);
             this.Name = "MarkaForm";
             this.Text = "MarkaForm";
+            this.Load += new System.EventHandler(this.MarkaForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbResim)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

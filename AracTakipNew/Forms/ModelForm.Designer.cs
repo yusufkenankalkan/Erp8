@@ -49,6 +49,7 @@
             this.btnGuncelle.TabIndex = 11;
             this.btnGuncelle.Text = "Güncelle";
             this.btnGuncelle.UseVisualStyleBackColor = true;
+            this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
             // 
             // btnKaydet
             // 
@@ -58,6 +59,7 @@
             this.btnKaydet.TabIndex = 10;
             this.btnKaydet.Text = "Kaydet";
             this.btnKaydet.UseVisualStyleBackColor = true;
+            this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
             // 
             // lstListe
             // 
@@ -67,6 +69,7 @@
             this.lstListe.Name = "lstListe";
             this.lstListe.Size = new System.Drawing.Size(176, 334);
             this.lstListe.TabIndex = 9;
+            this.lstListe.SelectedIndexChanged += new System.EventHandler(this.lstListe_SelectedIndexChanged);
             // 
             // pbResim
             // 
