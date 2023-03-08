@@ -1,4 +1,6 @@
-﻿using AracTakipNew.Models;
+﻿using AracTakipNew.Data;
+using AracTakipNew.Helpers;
+using AracTakipNew.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,7 +19,8 @@ namespace AracTakipNew.Forms
         {
             InitializeComponent();
         }
-        public List<Marka> Liste { get; set; } = new ();
+        public EnvanterContext DataContext { get; set; }
+        //public List<Marka> Liste { get; set; } = new ();
         private void btnKaydet_Click(object sender, EventArgs e)
         {
             try
@@ -30,9 +33,10 @@ namespace AracTakipNew.Forms
                 {
                     marka.Logo = (byte[])(new ImageConverter().ConvertTo(pbResim.Image, typeof(byte[])));
                 }
-                Liste.Add(marka);
+                DataContext.Markalar.Add(marka);
                 lstListe.DataSource = null;
-                lstListe.DataSource = Liste;
+                lstListe.DataSource = DataContext.Markalar;
+                DataHelper.Save(DataContext);
             }
             catch (Exception ex)
             {
@@ -82,7 +86,8 @@ namespace AracTakipNew.Forms
                     seciliMarka.Logo = (byte[])(new ImageConverter().ConvertTo(pbResim.Image, typeof(byte[])));
                 }
                 lstListe.DataSource = null;
-                lstListe.DataSource = Liste;
+                lstListe.DataSource = DataContext.Markalar;
+                DataHelper.Save(DataContext);
             }
             catch (Exception ex)
             {
@@ -93,7 +98,7 @@ namespace AracTakipNew.Forms
 
         private void MarkaForm_Load(object sender, EventArgs e)
         {
-            lstListe.DataSource = Liste;
+            lstListe.DataSource = DataContext.Markalar;
         }
     }
 }
