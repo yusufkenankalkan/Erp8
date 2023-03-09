@@ -28,130 +28,123 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnGuncelle = new System.Windows.Forms.Button();
-            this.btnKaydet = new System.Windows.Forms.Button();
-            this.lstListe = new System.Windows.Forms.ListBox();
-            this.pbResim = new System.Windows.Forms.PictureBox();
-            this.txtAd = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cmbMarka = new System.Windows.Forms.ComboBox();
-            this.cmbKasaTipi = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pbResim)).BeginInit();
-            this.SuspendLayout();
+            btnGuncelle = new Button();
+            btnKaydet = new Button();
+            lstListe = new ListBox();
+            txtAd = new TextBox();
+            label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            cmbMarka = new ComboBox();
+            cmbKasaTipi = new ComboBox();
+            SuspendLayout();
             // 
             // btnGuncelle
             // 
-            this.btnGuncelle.Location = new System.Drawing.Point(166, 310);
-            this.btnGuncelle.Name = "btnGuncelle";
-            this.btnGuncelle.Size = new System.Drawing.Size(69, 47);
-            this.btnGuncelle.TabIndex = 11;
-            this.btnGuncelle.Text = "Güncelle";
-            this.btnGuncelle.UseVisualStyleBackColor = true;
-            this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
+            btnGuncelle.Location = new Point(198, 145);
+            btnGuncelle.Margin = new Padding(3, 4, 3, 4);
+            btnGuncelle.Name = "btnGuncelle";
+            btnGuncelle.Size = new Size(88, 75);
+            btnGuncelle.TabIndex = 7;
+            btnGuncelle.Text = "Güncelle";
+            btnGuncelle.UseVisualStyleBackColor = true;
+            btnGuncelle.Click += btnGuncelle_Click;
             // 
             // btnKaydet
             // 
-            this.btnKaydet.Location = new System.Drawing.Point(90, 310);
-            this.btnKaydet.Name = "btnKaydet";
-            this.btnKaydet.Size = new System.Drawing.Size(69, 47);
-            this.btnKaydet.TabIndex = 10;
-            this.btnKaydet.Text = "Kaydet";
-            this.btnKaydet.UseVisualStyleBackColor = true;
-            this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
+            btnKaydet.Location = new Point(90, 145);
+            btnKaydet.Margin = new Padding(3, 4, 3, 4);
+            btnKaydet.Name = "btnKaydet";
+            btnKaydet.Size = new Size(88, 75);
+            btnKaydet.TabIndex = 6;
+            btnKaydet.Text = "Kaydet";
+            btnKaydet.UseVisualStyleBackColor = true;
+            btnKaydet.Click += btnKaydet_Click;
             // 
             // lstListe
             // 
-            this.lstListe.FormattingEnabled = true;
-            this.lstListe.ItemHeight = 15;
-            this.lstListe.Location = new System.Drawing.Point(260, 23);
-            this.lstListe.Name = "lstListe";
-            this.lstListe.Size = new System.Drawing.Size(176, 334);
-            this.lstListe.TabIndex = 9;
-            this.lstListe.SelectedIndexChanged += new System.EventHandler(this.lstListe_SelectedIndexChanged);
-            // 
-            // pbResim
-            // 
-            this.pbResim.Location = new System.Drawing.Point(90, 159);
-            this.pbResim.Name = "pbResim";
-            this.pbResim.Size = new System.Drawing.Size(145, 131);
-            this.pbResim.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbResim.TabIndex = 8;
-            this.pbResim.TabStop = false;
+            lstListe.FormattingEnabled = true;
+            lstListe.ItemHeight = 20;
+            lstListe.Location = new Point(301, 8);
+            lstListe.Margin = new Padding(3, 4, 3, 4);
+            lstListe.Name = "lstListe";
+            lstListe.Size = new Size(267, 404);
+            lstListe.TabIndex = 9;
+            lstListe.SelectedIndexChanged += lstListe_SelectedIndexChanged;
             // 
             // txtAd
             // 
-            this.txtAd.Location = new System.Drawing.Point(90, 69);
-            this.txtAd.Name = "txtAd";
-            this.txtAd.Size = new System.Drawing.Size(145, 23);
-            this.txtAd.TabIndex = 7;
+            txtAd.Location = new Point(90, 53);
+            txtAd.Margin = new Padding(3, 4, 3, 4);
+            txtAd.Name = "txtAd";
+            txtAd.Size = new Size(195, 27);
+            txtAd.TabIndex = 4;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 15);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Marka";
+            label1.AutoSize = true;
+            label1.Location = new Point(14, 64);
+            label1.Name = "label1";
+            label1.Size = new Size(79, 20);
+            label1.TabIndex = 5;
+            label1.Text = "Model Adı";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 72);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 15);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Model Adı";
+            label2.AutoSize = true;
+            label2.Location = new Point(39, 12);
+            label2.Name = "label2";
+            label2.Size = new Size(50, 20);
+            label2.TabIndex = 5;
+            label2.Text = "Marka";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(19, 119);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 15);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "Kasa Tipi";
+            label3.AutoSize = true;
+            label3.Location = new Point(23, 117);
+            label3.Name = "label3";
+            label3.Size = new Size(69, 20);
+            label3.TabIndex = 5;
+            label3.Text = "Kasa Tipi";
             // 
             // cmbMarka
             // 
-            this.cmbMarka.FormattingEnabled = true;
-            this.cmbMarka.Location = new System.Drawing.Point(90, 23);
-            this.cmbMarka.Name = "cmbMarka";
-            this.cmbMarka.Size = new System.Drawing.Size(145, 23);
-            this.cmbMarka.TabIndex = 14;
+            cmbMarka.FormattingEnabled = true;
+            cmbMarka.Location = new Point(90, 8);
+            cmbMarka.Margin = new Padding(3, 4, 3, 4);
+            cmbMarka.Name = "cmbMarka";
+            cmbMarka.Size = new Size(195, 28);
+            cmbMarka.TabIndex = 10;
             // 
             // cmbKasaTipi
             // 
-            this.cmbKasaTipi.FormattingEnabled = true;
-            this.cmbKasaTipi.Location = new System.Drawing.Point(90, 116);
-            this.cmbKasaTipi.Name = "cmbKasaTipi";
-            this.cmbKasaTipi.Size = new System.Drawing.Size(145, 23);
-            this.cmbKasaTipi.TabIndex = 15;
+            cmbKasaTipi.FormattingEnabled = true;
+            cmbKasaTipi.Location = new Point(90, 107);
+            cmbKasaTipi.Margin = new Padding(3, 4, 3, 4);
+            cmbKasaTipi.Name = "cmbKasaTipi";
+            cmbKasaTipi.Size = new Size(195, 28);
+            cmbKasaTipi.TabIndex = 11;
             // 
             // ModelForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(526, 472);
-            this.Controls.Add(this.cmbKasaTipi);
-            this.Controls.Add(this.cmbMarka);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.btnGuncelle);
-            this.Controls.Add(this.btnKaydet);
-            this.Controls.Add(this.lstListe);
-            this.Controls.Add(this.pbResim);
-            this.Controls.Add(this.txtAd);
-            this.Controls.Add(this.label1);
-            this.Name = "ModelForm";
-            this.Text = "ModelForm";
-            this.Load += new System.EventHandler(this.ModelForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pbResim)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(581, 432);
+            Controls.Add(cmbKasaTipi);
+            Controls.Add(cmbMarka);
+            Controls.Add(btnGuncelle);
+            Controls.Add(btnKaydet);
+            Controls.Add(lstListe);
+            Controls.Add(txtAd);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Margin = new Padding(3, 4, 3, 4);
+            Name = "ModelForm";
+            Text = "ModelForm";
+            Load += ModelForm_Load;
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -159,7 +152,6 @@
         private Button btnGuncelle;
         private Button btnKaydet;
         private ListBox lstListe;
-        private PictureBox pbResim;
         private TextBox txtAd;
         private Label label1;
         private Label label2;

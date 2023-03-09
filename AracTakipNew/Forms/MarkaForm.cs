@@ -1,7 +1,4 @@
-﻿using AracTakipNew.Data;
-using AracTakipNew.Helpers;
-using AracTakipNew.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AracTakipNew.Data;
+using AracTakipNew.Helpers;
+using AracTakipNew.Models;
 
 namespace AracTakipNew.Forms
 {
@@ -19,20 +19,24 @@ namespace AracTakipNew.Forms
         {
             InitializeComponent();
         }
+
         public EnvanterContext DataContext { get; set; }
-        //public List<Marka> Liste { get; set; } = new ();
+        //public List<Marka> Liste { get; set; } = new();
         private void btnKaydet_Click(object sender, EventArgs e)
         {
             try
             {
                 Marka marka = new Marka()
                 {
-                    Ad = txtAd.Text,
+                    Ad = txtAd.Text
                 };
                 if (pbResim.Image != null)
                 {
                     marka.Logo = (byte[])(new ImageConverter().ConvertTo(pbResim.Image, typeof(byte[])));
                 }
+                else
+                    marka.Logo = null;
+
                 DataContext.Markalar.Add(marka);
                 lstListe.DataSource = null;
                 lstListe.DataSource = DataContext.Markalar;
@@ -40,7 +44,7 @@ namespace AracTakipNew.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Bir Hata Oluştu : {ex.Message}");
+                MessageBox.Show($"Bir hata oluştu: {ex.Message}");
             }
         }
 
@@ -55,6 +59,7 @@ namespace AracTakipNew.Forms
             {
                 pbResim.Image = Image.FromFile(dosyaAc.FileName);
             }
+
         }
 
         private void lstListe_SelectedIndexChanged(object sender, EventArgs e)
@@ -93,7 +98,6 @@ namespace AracTakipNew.Forms
             {
                 MessageBox.Show($"Bir hata oluştu: {ex.Message}");
             }
-
         }
 
         private void MarkaForm_Load(object sender, EventArgs e)
