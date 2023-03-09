@@ -44,6 +44,7 @@ namespace AracTakipNew.Forms
                 };
 
                 DataContext.Modeller.Add(model);
+
                 lstListe.DataSource = null;
                 lstListe.DataSource = DataContext.Modeller;
                 DataHelper.Save(DataContext);
@@ -61,7 +62,6 @@ namespace AracTakipNew.Forms
             txtAd.Text = model.Ad;
             cmbKasaTipi.SelectedItem = Enum.GetName(typeof(KasaTipleri), model.KasaTipi);
             cmbMarka.SelectedItem = DataContext.Markalar.Find(x => x.Id == model.Marka.Id);
-
         }
 
         private void btnGuncelle_Click(object sender, EventArgs e)
@@ -76,4 +76,5 @@ namespace AracTakipNew.Forms
             DataHelper.Save(DataContext);
         }
     }
+
 }

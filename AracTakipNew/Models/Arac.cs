@@ -15,5 +15,9 @@ namespace AracTakipNew.Models
         public VitesTipleri VitesTipi { get; set; }
         public YakitTipleri YakitTipi { get; set; }
 
+        public override string ToString()
+        {
+            return $"{this.Model.Marka.Ad} - {this.Model.Ad} - {this.Plaka}";
+        }
     }
 }
