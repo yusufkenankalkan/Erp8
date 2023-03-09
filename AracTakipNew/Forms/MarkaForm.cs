@@ -94,6 +94,7 @@ namespace AracTakipNew.Forms
                 lstListe.DataSource = null;
                 lstListe.DataSource = DataContext.Markalar;
                 DataHelper.Save(DataContext);
+                this.FormCleaner(Controls);
             }
             catch (Exception ex)
             {
