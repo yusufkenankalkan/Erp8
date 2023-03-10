@@ -56,5 +56,7 @@ namespace AracTakipNew
                 _aracForm.Show();
             }
         }
+
+
     }
 }
