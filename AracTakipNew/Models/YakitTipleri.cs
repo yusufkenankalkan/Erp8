@@ -2,6 +2,10 @@
 {
     public enum YakitTipleri : byte
     {
-        Benzin, Dizel, Lpg, Elektrik, Hybrid
+        Benzin, 
+        Dizel, 
+        Lpg, 
+        Elektrik, 
+        Hybrid
     }
 }

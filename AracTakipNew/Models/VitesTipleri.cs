@@ -2,6 +2,8 @@
 {
     public enum VitesTipleri : byte
     {
-        Manuel, Otomatik, YariOtomatik //Display member ile yazımına bak
+        Manuel, 
+        Otomatik, 
+        YariOtomatik //Display member ile yazımına bak
     }
 }
