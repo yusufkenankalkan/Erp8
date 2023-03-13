@@ -61,18 +61,21 @@
             this.markaToolStripMenuItem.Name = "markaToolStripMenuItem";
             this.markaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.markaToolStripMenuItem.Text = "&Marka";
+            this.markaToolStripMenuItem.Click += new System.EventHandler(this.markaToolStripMenuItem_Click_1);
             // 
             // modelToolStripMenuItem
             // 
             this.modelToolStripMenuItem.Name = "modelToolStripMenuItem";
             this.modelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.modelToolStripMenuItem.Text = "Mo&del";
+            this.modelToolStripMenuItem.Click += new System.EventHandler(this.modelToolStripMenuItem_Click_1);
             // 
             // aracToolStripMenuItem
             // 
             this.aracToolStripMenuItem.Name = "aracToolStripMenuItem";
             this.aracToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aracToolStripMenuItem.Text = "&Arac";
+            this.aracToolStripMenuItem.Click += new System.EventHandler(this.aracToolStripMenuItem_Click_1);
             // 
             // Form1
             // 

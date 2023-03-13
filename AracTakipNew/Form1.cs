@@ -1,4 +1,4 @@
-using AracTakipNew.Data;
+﻿using AracTakipNew.Data;
 using AracTakipNew.Forms;
 using AracTakipNew.Helpers;
 using AracTakipNew.Models;
@@ -21,7 +21,10 @@ namespace AracTakipNew
             var data = DataHelper.Load();
             _dataContext = data ?? new();
         }
-        private void markaToolStripMenuItem_Click(object sender, EventArgs e)
+
+
+
+        private void markaToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             if (_markaForm == null || _markaForm.IsDisposed)
             {
@@ -33,7 +36,7 @@ namespace AracTakipNew
             }
         }
 
-        private void modelToolStripMenuItem_Click(object sender, EventArgs e)
+        private void modelToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             if (_modelForm == null || _modelForm.IsDisposed)
             {
@@ -45,18 +48,16 @@ namespace AracTakipNew
             }
         }
 
-        private void aracToolStripMenuItem_Click(object sender, EventArgs e)
+        private void aracToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             if (_aracForm == null || _aracForm.IsDisposed)
             {
                 _aracForm = new AracForm();
                 _aracForm.MdiParent = this;
-                _aracForm.Text = "Ara� Formu";
+                _aracForm.Text = "Araç Formu";
                 _aracForm.DataContext = _dataContext;
                 _aracForm.Show();
             }
         }
-
-
     }
 }

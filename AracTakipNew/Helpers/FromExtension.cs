@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace AracTakipNew.Helpers
 {
-    public static class FormExtension //Sınıf tanımı da statik olmalıdır
+    public static class FormExtension //sınıf tanımı da statik olmalı
     {
         //Extansin method
-        //Statik olarak tanımlanmaktadır
-
-        public static void FormCleaner(this Form form, Control.ControlCollection container) //this ifadesinden sonra yazılan nesneye extend edilecektir
+        //Statik olarak tanımlanmaktadır. 
+        public static void FormCleaner(this Form form, Control.ControlCollection container) //this ifadesinden sonra yazılan nesneye extend edilecektir. 
         {
             foreach (Control item in container)
             {
@@ -29,8 +28,8 @@ namespace AracTakipNew.Helpers
                     rdb.Checked = false;
                 else if (item is PictureBox pic)
                     pic.Image = null;
-                else if (item is GroupBox gBox)
-                    FormCleaner(form, gBox.Controls);
+                else if (item is GroupBox gbox)
+                    FormCleaner(form, gbox.Controls);
                 else if (item is Panel pnl)
                     FormCleaner(form, pnl.Controls);
             }
